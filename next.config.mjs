@@ -6,9 +6,11 @@ import withSearch from './src/markdoc/search.mjs'
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'ts', 'tsx'],
   output: "export",
-  assetPrefix: 'github-pages-test',
+  basePath: isProd ? '/github-pages-test' : '',
+  assetPrefix: isProd ? '/github-pages-test/' : '',
 }
 
 export default withSearch(
   withMarkdoc({ schemaPath: './src/markdoc' })(nextConfig),
 )
+
